@@ -33,3 +33,7 @@ Then set some variables in your `.env` file:
     echo "SECRET_KEY=[ Secret Key goes here ]" > .env
     echo "GOOGLE_MAPS_API_KEY=[ Google API Key goes here ]" > .env
     echo "REDIS_URL=[ Redis URL goes here ]" > .env
+
+
+## When On Heroku
+    heroku config:set BUILD_WITH_GEO_LIBRARIES=1

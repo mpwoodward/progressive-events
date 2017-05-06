@@ -60,7 +60,7 @@ class EventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        exclude = ['venue', 'host', 'slug']
+        exclude = ['venue', 'host', 'slug', ]
         labels = {
             'start': 'Start Time',
             'end': 'End Time',

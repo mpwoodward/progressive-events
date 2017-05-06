@@ -18,8 +18,10 @@ import pytz
 def round_hours(hours=1):
     return now().replace(minute=0).replace(second=0) + timedelta(hours=hours)
 
+
 def round_two_hours():
     return round_hours(2)
+
 
 class Venue(models.Model):
     title = models.CharField(max_length=255)
@@ -122,7 +124,7 @@ class Event(models.Model):
     description = models.TextField(blank=True)
     start = models.TimeField(default=round_hours)
     end = models.TimeField(default=round_two_hours)
-    recurrences = MoneypatchedRecurrenceField(null=True)
+    recurrences = MoneypatchedRecurrenceField(blank=True, null=True)
     event_type = models.CharField(max_length=255, choices=EVENT_TYPE_CHOICES, null=True, blank=True)
     host = models.ForeignKey(Organization, blank=True, null=True)
     objects = EventQueryset.as_manager()

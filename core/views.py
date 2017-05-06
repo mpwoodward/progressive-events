@@ -75,6 +75,9 @@ class AddView(TemplateView):
             return redirect('/?address=%s' %  urllib.quote(', '.join([venue.city, venue.state])))
 
         else:
+            print venue_form.errors
+            print event_form.errors
+            print organization_form.errors
 
             messages.error(self.request, 'There was an error in your event. Please check below for details.')
 

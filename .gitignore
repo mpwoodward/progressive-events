@@ -1,1 +1,8 @@
 *.pyc
+.idea/
+/ubuntu-xenial-16.04-cloudimg-console.log
+.vagrant/
+src/
+ubuntu-xenial-16.04-cloudimg-console.log
+.env
+settings_local.py

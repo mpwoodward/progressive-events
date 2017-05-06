@@ -27,9 +27,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)]))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DEBUG', False))
+#DEBUG = bool(os.environ.get('DEBUG', False))
+DEBUG = True
 
-ALLOWED_HOSTS = ['progressiveevents.org', 'www.progressiveevents.org', 'localhost', 'progressiveevents.herokuapp.com']
+#ALLOWED_HOSTS = ['progressiveevents.org', 'www.progressiveevents.org', 'localhost', 'progressiveevents.herokuapp.com']
 
 
 # Application definition
@@ -144,3 +145,5 @@ REST_FRAMEWORK = {
 
 # may need addressing at some point, but until then...
 CORS_ORIGIN_ALLOW_ALL = True
+
+DEPLOYMENT_ENVIRONMENT = 'vagrant'
