@@ -11,7 +11,11 @@ if __name__ == "__main__":
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'progressive_events.settings')
     if settings.DEPLOYMENT_ENVIRONMENT != 'heroku':
         dotenv.read_dotenv()
-        os.environ['DJANGO_SETTINGS_MODULE'] = 'progressive_events.settings'
+
+        if settings.DEPLOYMENT_ENVIRONMENT == 'local':
+            os.environ['DJANGO_SETTINGS_MODULE'] = 'progressive_events.settings_local'
+        else:
+            os.environ['DJANGO_SETTINGS_MODULE'] = 'progressive_events.settings'
     else:
         os.environ['DJANGO_SETTINGS_MODULE'] = 'progressive_events.settings_heroku'
 
