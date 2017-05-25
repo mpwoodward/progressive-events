@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load htmlattributes %}
+
+{% block title %} - Create Account{% endblock %}
+
+{% block content %}
+    <h3>Create an Account to Manage Events</h3>
+
+    <p>In order to list your event with {{ ORGANIZATION_SETTINGS.name }} you'll need to create an account.
+        Please complete the form below.</p>
+    <p>(Already have an account?
+        <a href="{% url 'account:login' %}">Please log in</a> to create your event.)</p>
+
+    <form action="" method="post" class="form-horizontal">
+        {% csrf_token %}
+        <div class="form-group{% if form.email.errors %} has-error{% endif %}">
+            <label for="{{ form.email.auto_id }}" class="col-sm-2 control-label">Email Address</label>
+            <div class="col-sm-3">
+                {{ form.email|htmlattributes:'class:form-control' }}
+                {% if form.email.errors %}
+                    <p class="help-inline text-danger">{{ form.email.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group{% if form.first_name.errors %} has-error{% endif %}">
+            <label for="{{ form.first_name.auto_id }}" class="col-sm-2 control-label">First Name</label>
+            <div class="col-sm-3">
+                {{ form.first_name|htmlattributes:'class:form-control' }}
+                {% if form.first_name.errors %}
+                    <p class="help-inline text-danger">{{ form.first_name.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group{% if form.last_name.errors %} has-error{% endif %}">
+            <label for="{{ form.last_name.auto_id }}" class="col-sm-2 control-label">Last Name</label>
+            <div class="col-sm-3">
+                {{ form.last_name|htmlattributes:'class:form-control' }}
+                {% if form.last_name.errors %}
+                    <p class="help-inline text-danger">{{ form.last_name.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group{% if form.zip.errors %} has-error{% endif %}">
+            <label for="{{ form.zip.auto_id }}" class="col-sm-2 control-label">Zip Code</label>
+            <div class="col-sm-3">
+                {{ form.zip|htmlattributes:'class:form-control' }}
+                {% if form.zip.errors %}
+                    <p class="help-inline text-danger">{{ form.zip.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group{% if form.password.errors %} has-error{% endif %}">
+            <label for="{{ form.password.auto_id }}" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-3">
+                {{ form.password|htmlattributes:'class:form-control' }}
+                {% if form.password.errors %}
+                    <p class="help-inline text-danger">{{ form.password.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group{% if form.confirm_password.errors %} has-error{% endif %}">
+            <label for="{{ form.confirm_password.auto_id }}" class="col-sm-2 control-label">Confirm Password</label>
+            <div class="col-sm-3">
+                {{ form.confirm_password|htmlattributes:'class:form-control' }}
+                {% if form.confirm_password.errors %}
+                    <p class="help-inline text-danger">{{ form.confirm_password.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

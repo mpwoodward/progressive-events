@@ -4,6 +4,7 @@ from django.db.models import fields
 import re
 import recurrence
 
+
 class MoneypatchedRecurrenceField(RecurrenceField):
     strip_time = re.compile(r'T\d{6}')
 

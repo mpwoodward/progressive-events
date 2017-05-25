@@ -32,6 +32,31 @@ DEBUG = True
 
 #ALLOWED_HOSTS = ['progressiveevents.org', 'www.progressiveevents.org', 'localhost', 'progressiveevents.herokuapp.com']
 
+AUTH_USER_MODEL = 'account.User'
+
+# ORGANIZATION SETTINGS
+ORGANIZATION_SETTINGS = {
+    'name': 'Organization Name',
+    'address': 'Organization Address',
+    'city': 'Organization City',
+    'state': 'WA',
+    'zip': '98339',
+    'description': 'My organization description.',
+    'organization_url': 'http://myorg.com',
+    'events_url': 'http://events.myorg.com',
+    'og_image': '',
+    'og_image_width': '',
+    'og_image_height': '',
+    'og_title': 'My Open Graph Title',
+    'og_description': 'My open graph description.',
+    'og_sitename': 'My Open Graph Site Name',
+    'twitter_card': '',
+    'twitter_site': '@MyHandle',
+    'twitter_creator': '@MyHandle',
+    'twitter_title': 'My Twitter Title',
+    'twitter_description': 'My Twitter Description',
+    'twitter_image': '',
+}
 
 # Application definition
 
@@ -48,6 +73,8 @@ INSTALLED_APPS = [
     'recurrence',
     'rest_framework',
     'corsheaders',
+    'account',
+    'event',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -75,6 +102,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.organization_details',
             ],
         },
     },
@@ -130,6 +158,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', None)
+MAPBOX_API_TOKEN = os.environ.get('MAPBOX_API_TOKEN', None)
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'debug',

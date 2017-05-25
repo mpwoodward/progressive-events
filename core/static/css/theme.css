@@ -1,0 +1,27 @@
+body {
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.navbar-nav > li > a {
+  padding-top:5px !important;
+  padding-bottom:5px !important;
+}
+
+.navbar {
+  min-height:90px !important;
+}
