@@ -175,8 +175,10 @@
 {#                                <image xlink:href="{% static 'img/billionaires.svg' %}" width="200" height="40" x="0"/>#}
 {#                            </svg>#}
 {#                        </div>#}
-                        <sub>Copyright &copy; {{ COPYRIGHT_YEAR }} <a
-                                href="{{ ORGANIZATION_SETTINGS.organization_url }}">{{ ORGANIZATION_SETTINGS.name }}</a></sub>
+                        <sub>
+                            Copyright &copy; {{ COPYRIGHT_YEAR }}
+                            <a href="{{ ORGANIZATION_SETTINGS.organization_url }}">{{ ORGANIZATION_SETTINGS.name }}</a>
+                        </sub>
                     </div>
                 </footer>
             </div>
@@ -286,7 +288,7 @@
                     d3.csv("{% static 'd/campaign-offices.csv' %}",
                         function (campaignOffices) {
                             //Load zipcodes
-                            d3.csv("{% static 'd/us_postal_codes.gz' %}",
+                            d3.csv("{% static 'd/us_postal_codes.csv' %}",
                                 function (zipcodes) {
                                     $("#loading-icon").hide();
                                     //Clean data
