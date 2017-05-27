@@ -68,7 +68,7 @@ class Organization(models.Model):
         )
     title = models.CharField(max_length=255)
     url = models.URLField(blank=True)
-    slug = models.SlugField(blank=True, null=True, max_length=255) 
+    slug = models.SlugField(blank=True, null=True, max_length=255)
     organization_type = models.CharField(max_length=255, choices=ORG_TYPE_CHOICES, null=True, blank=True)
     objects = models.GeoManager()
 
@@ -92,7 +92,7 @@ class Organization(models.Model):
 class EventQueryset(models.query.GeoQuerySet):
 
     def filter_by_date(self, as_occurrences=False, **kwargs):
-        
+
         midnight_hawaii = datetime.combine(datetime.now(pytz.timezone('US/Hawaii')), datetime.min.time())
         future_date = midnight_hawaii + timedelta(**kwargs)
         queryset = self.all()

@@ -1,13 +1,8 @@
 from django.conf.urls import include, url
-from django.views.i18n import javascript_catalog
 
 import api
 import views
 
-
-js_info_dict = {
-    'packages': ('recurrence', ),
-}
 
 urlpatterns = [
     url(r'^$', views.MapView.as_view(), name='index'),
@@ -23,6 +18,4 @@ urlpatterns = [
     url(r'^api/1/venues', api.VenueList.as_view()),
 
     url(r'^events/(?P<slug>[\w\-]+)$', views.EventDetailView.as_view(), name='event_detail'),
-
-    url(r'^jsi18n/$', javascript_catalog, js_info_dict)
 ]
